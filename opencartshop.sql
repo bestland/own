@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2017 at 06:20 PM
+-- Generation Time: Mar 20, 2017 at 06:28 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -413,7 +413,8 @@ INSERT INTO `oc_category` (`category_id`, `image`, `parent_id`, `top`, `column`,
 (55, '', 34, 0, 0, 0, 1, '2010-11-08 10:31:32', '2010-11-08 10:31:32'),
 (56, '', 34, 0, 0, 0, 1, '2010-11-08 10:31:50', '2011-04-22 01:16:37'),
 (57, '', 0, 1, 1, 3, 1, '2011-04-26 08:53:16', '2011-05-30 12:15:05'),
-(58, '', 52, 0, 0, 0, 1, '2011-05-08 13:44:16', '2011-05-08 13:44:16');
+(58, '', 52, 0, 0, 0, 1, '2011-05-08 13:44:16', '2011-05-08 13:44:16'),
+(59, '', 0, 0, 1, 0, 1, '2017-03-20 20:28:37', '2017-03-20 20:28:37');
 
 -- --------------------------------------------------------
 
@@ -473,7 +474,8 @@ INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `de
 (55, 1, 'test 23', '', 'test 23', '', ''),
 (56, 1, 'test 24', '', 'test 24', '', ''),
 (57, 1, 'Планшеты', '', 'Планшеты', '', ''),
-(58, 1, 'test 25', '', 'test 25', '', '');
+(58, 1, 'test 25', '', 'test 25', '', ''),
+(59, 1, 'Тестовая категория 111', '&lt;p&gt;Описание 1111&lt;/p&gt;', 'Title  111', 'Description 111', 'Keywords  1111');
 
 -- --------------------------------------------------------
 
@@ -573,7 +575,8 @@ INSERT INTO `oc_category_path` (`category_id`, `path_id`, `level`) VALUES
 (55, 55, 1),
 (56, 34, 0),
 (56, 56, 1),
-(57, 57, 0);
+(57, 57, 0),
+(59, 59, 0);
 
 -- --------------------------------------------------------
 
@@ -586,6 +589,13 @@ CREATE TABLE `oc_category_to_layout` (
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_category_to_layout`
+--
+
+INSERT INTO `oc_category_to_layout` (`category_id`, `store_id`, `layout_id`) VALUES
+(59, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -640,7 +650,8 @@ INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
 (55, 0),
 (56, 0),
 (57, 0),
-(58, 0);
+(58, 0),
+(59, 0);
 
 -- --------------------------------------------------------
 
@@ -764,7 +775,7 @@ CREATE TABLE `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Рубль', 'RUB', '', 'р.', '0', 1.00000000, 1, '2014-09-09 12:27:55');
+(1, 'Рубль', 'RUB', '', 'р.', '0', 1.00000000, 1, '2017-03-20 18:27:59');
 
 -- --------------------------------------------------------
 
@@ -3129,7 +3140,8 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (883, 'affiliate/payment', 'affiliate-payment'),
 (884, 'affiliate/tracking', 'affiliate-tracking'),
 (885, 'affiliate/transaction', 'affiliate-transaction'),
-(886, 'affiliate/account', 'affiliates');
+(886, 'affiliate/account', 'affiliates'),
+(887, 'category_id=59', 'testovaya-kategoriya');
 
 -- --------------------------------------------------------
 
@@ -3158,7 +3170,7 @@ CREATE TABLE `oc_user` (
 --
 
 INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `salt`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', 'f7678211e6986d4ba5c1cc0f0a22d970897dbded', 'vuxkORA3t', 'John', 'Doe', 'seodegustator@gmail.com', '', '', '', 1, '2017-03-20 20:19:50');
+(1, 1, 'admin', 'f7678211e6986d4ba5c1cc0f0a22d970897dbded', 'vuxkORA3t', 'John', 'Doe', 'seodegustator@gmail.com', '', '', '127.0.0.1', 1, '2017-03-20 20:19:50');
 
 -- --------------------------------------------------------
 
@@ -4394,7 +4406,7 @@ ALTER TABLE `oc_cart`
 -- AUTO_INCREMENT for table `oc_category`
 --
 ALTER TABLE `oc_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `oc_country`
 --
@@ -4744,7 +4756,7 @@ ALTER TABLE `oc_upload`
 -- AUTO_INCREMENT for table `oc_url_alias`
 --
 ALTER TABLE `oc_url_alias`
-  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=887;
+  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=888;
 --
 -- AUTO_INCREMENT for table `oc_user`
 --
